@@ -1,20 +1,29 @@
 import { Image } from '@chakra-ui/react'
+import { fadeAnimation, scaleAnimation } from 'styles'
 
 export const WaveImage = () => {
   return (
     <Image
       position={'absolute'}
       top={'46.53px'}
+      left={'0px'}
       marginTop={'32px'}
       width={'100vw'}
       src="wave.svg"
+      animation={fadeAnimation}
     ></Image>
   )
 }
 
 export const LoginTitleImage = () => {
   return (
-    <Image marginTop={'32px'} width={190} h={51} src="loginTitle.svg"></Image>
+    <Image
+      marginTop={'32px'}
+      width={190}
+      h={51}
+      src="loginTitle.svg"
+      animation={scaleAnimation}
+    ></Image>
   )
 }
 
@@ -25,6 +34,7 @@ export const RegisterTitleImage = () => {
       width={236}
       h={51}
       src="registerTitle.svg"
+      animation={scaleAnimation}
     ></Image>
   )
 }
