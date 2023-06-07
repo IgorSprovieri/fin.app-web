@@ -11,7 +11,9 @@ import { useNavigate } from 'react-router-dom'
 export const LoginScreen = () => {
   const navigate = useNavigate()
 
-  const onSubmit = () => {}
+  const onSubmit = () => {
+    navigate('/home')
+  }
 
   const onRegister = () => {
     navigate('/register')

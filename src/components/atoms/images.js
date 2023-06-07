@@ -6,8 +6,6 @@ export const WaveImage = () => {
     <Image
       position={'absolute'}
       top={'46.53px'}
-      left={'0px'}
-      marginTop={'32px'}
       width={'100vw'}
       src="wave.svg"
       animation={fadeAnimation}
@@ -34,6 +32,17 @@ export const RegisterTitleImage = () => {
       width={236}
       h={51}
       src="registerTitle.svg"
+      animation={scaleAnimation}
+    ></Image>
+  )
+}
+
+export const AvatarImage = () => {
+  return (
+    <Image
+      width={70}
+      h={70}
+      src="avatar.svg"
       animation={scaleAnimation}
     ></Image>
   )

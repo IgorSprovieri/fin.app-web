@@ -1,3 +1,5 @@
 export * from './buttons'
 export * from './inputs'
 export * from './images'
+export * from './texts'
+export * from './icons'

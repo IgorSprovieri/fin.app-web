@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from 'styles'
-import { LoginScreen, RegisterScreen } from 'screens'
+import { HomeScreen, LoginScreen, RegisterScreen } from 'screens'
 
 const App = () => {
   return (
@@ -14,6 +14,7 @@ const App = () => {
             path="/register"
             element={<RegisterScreen></RegisterScreen>}
           ></Route>
+          <Route path="/home" element={<HomeScreen></HomeScreen>}></Route>
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

@@ -12,6 +12,7 @@ export const LoginInput = ({ placeholder, marginTop, type }) => {
       fontSize={22}
       type={type}
       animation={scaleAnimation}
+      fontFamily={'Inter'}
     ></Input>
   )
 }
