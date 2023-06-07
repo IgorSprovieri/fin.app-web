@@ -2,21 +2,19 @@ import { Flex } from '@chakra-ui/react'
 import {
   LinkButton,
   LoginInput,
-  LoginTitleImage,
+  RegisterTitleImage,
   SubmitButton,
   WaveImage
 } from 'components'
 import { useNavigate } from 'react-router-dom'
 
-export const LoginScreen = () => {
+export const RegisterScreen = () => {
   const navigate = useNavigate()
 
   const onSubmit = () => {}
-
-  const onRegister = () => {
-    navigate('/register')
+  const onLogin = () => {
+    navigate('/login')
   }
-
   return (
     <Flex
       flexDir={'column'}
@@ -27,10 +25,15 @@ export const LoginScreen = () => {
     >
       <WaveImage></WaveImage>
       <Flex flexDir={'column'} align={'center'} w={310}>
-        <LoginTitleImage></LoginTitleImage>
+        <RegisterTitleImage></RegisterTitleImage>
+        <LoginInput
+          placeholder={'Nome'}
+          marginTop={'48px'}
+          type={'text'}
+        ></LoginInput>
         <LoginInput
           placeholder={'E-mail'}
-          marginTop={'64px'}
+          marginTop={'16px'}
           type={'text'}
         ></LoginInput>
         <LoginInput
@@ -38,8 +41,12 @@ export const LoginScreen = () => {
           marginTop={'16px'}
           type={'password'}
         ></LoginInput>
-        <SubmitButton onClick={() => onSubmit()}>Entrar</SubmitButton>
-        <LinkButton onClick={() => onRegister()}>Crie sua conta</LinkButton>
+        <SubmitButton marginTop={'48px'} onClick={() => onSubmit()}>
+          Criar Conta
+        </SubmitButton>
+        <LinkButton onClick={() => onLogin()}>
+          Já tem conta? Faça o Login!
+        </LinkButton>
       </Flex>
     </Flex>
   )
