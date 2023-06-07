@@ -16,3 +16,19 @@ export const LoginInput = ({ placeholder, marginTop, type }) => {
     ></Input>
   )
 }
+
+export const DateInput = () => {
+  return (
+    <Input
+      color={colors.white}
+      type={'date'}
+      animation={scaleAnimation}
+      fontFamily={'Inter'}
+      marginTop={'16px'}
+      fontSize={'20px'}
+      w={'162px'}
+      padding={0}
+      border={0}
+    ></Input>
+  )
+}

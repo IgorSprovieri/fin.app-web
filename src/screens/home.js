@@ -7,7 +7,8 @@ import {
   MenuButton,
   HomeIcon,
   TransitionsIcon,
-  BalanceIcon
+  BalanceIcon,
+  DateInput
 } from 'components'
 
 export const HomeScreen = () => {
@@ -41,7 +42,7 @@ export const HomeScreen = () => {
           justify={'space-between'}
         >
           <MoneyBalance value={'1 000,00'}></MoneyBalance>
-          <Box w={80} h={80}></Box>
+          <DateInput></DateInput>
         </Flex>
         <Flex
           w={'300px'}
