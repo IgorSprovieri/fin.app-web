@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from 'styles'
 import { LoginScreen } from 'screens'
@@ -5,7 +6,12 @@ import { LoginScreen } from 'screens'
 const App = () => {
   return (
     <ChakraProvider theme={theme}>
-      <LoginScreen></LoginScreen>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginScreen></LoginScreen>}></Route>
+          <Route path="/login" element={<LoginScreen></LoginScreen>}></Route>
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   )
 }
