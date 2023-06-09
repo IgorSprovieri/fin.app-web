@@ -1,4 +1,13 @@
-import { Input } from '@chakra-ui/react'
+import {
+  Flex,
+  Heading,
+  Input,
+  NumberInput,
+  NumberInputField,
+  Switch
+} from '@chakra-ui/react'
+import { useState } from 'react'
+
 import { colors, scaleAnimation } from 'styles'
 
 export const LoginInput = ({ placeholder, marginTop, type }) => {
@@ -32,5 +41,50 @@ export const DateInput = () => {
       borderRadius={'50px'}
       bgColor={colors.blue}
     ></Input>
+  )
+}
+
+export const ModalInput = ({ placeholder, type }) => {
+  return (
+    <Input
+      borderRadius={'20px'}
+      marginTop={'16px'}
+      placeholder={placeholder}
+      type={type || 'Text'}
+    />
+  )
+}
+
+export const MoneyInput = ({ onChange, value }) => {
+  const [isExpense, setIsExpense] = useState(false)
+
+  return (
+    <>
+      <Flex flexDir={'row'} align={'center'}>
+        <Switch
+          size="lg"
+          value={isExpense}
+          onChange={() => setIsExpense(!isExpense)}
+          marginRight={'16px'}
+        ></Switch>
+        <Heading fontSize={'16px'} fontWeight={'medium'} fontFamily={'Inter'}>
+          Despesa
+        </Heading>
+      </Flex>
+
+      <NumberInput
+        onChange={onChange}
+        value={value}
+        defaultValue={0}
+        min={0}
+        precision={2}
+        marginTop={'16px'}
+        borderRadius={'20px'}
+        border={''}
+        bgColor={isExpense === true ? colors.red : colors.green}
+      >
+        <NumberInputField borderRadius={'20px'} border={''} />
+      </NumberInput>
+    </>
   )
 }
