@@ -1,14 +1,24 @@
 import { Image } from '@chakra-ui/react'
-import { fadeAnimation, scaleAnimation } from 'styles'
+import { useEffect, useState } from 'react'
+import { fadeAnimation, scaleAnimation, transparentAnimation } from 'styles'
 
 export const WaveImage = () => {
+  const delay = '0.5s'
+  const [animation, setAnimation] = useState(transparentAnimation(delay))
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimation(fadeAnimation)
+    }, 500)
+  }, [])
+
   return (
     <Image
       position={'absolute'}
       top={'46.53px'}
       width={'100vw'}
       src="wave.svg"
-      animation={fadeAnimation}
+      animation={animation}
     ></Image>
   )
 }

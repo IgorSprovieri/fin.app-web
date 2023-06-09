@@ -1,5 +1,11 @@
 import { Flex, Heading } from '@chakra-ui/react'
-import { colors, scaleAnimation } from 'styles'
+import { useEffect, useState } from 'react'
+import {
+  colors,
+  fadeAnimation,
+  scaleAnimation,
+  transparentAnimation
+} from 'styles'
 
 export const H1 = ({ children }) => {
   return (
@@ -29,6 +35,15 @@ export const H2 = ({ children }) => {
 }
 
 export const MoneyBalance = ({ value }) => {
+  const delay = '0.5s'
+  const [animation, setAnimation] = useState(transparentAnimation(delay))
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimation(fadeAnimation)
+    }, 500)
+  }, [])
+
   return (
     <Flex
       h={'80px'}
@@ -42,7 +57,7 @@ export const MoneyBalance = ({ value }) => {
         fontSize={'22px'}
         fontWeight={'medium'}
         fontFamily={'Inter'}
-        animation={scaleAnimation}
+        animation={animation}
       >
         Saldo Mensal
       </Heading>
@@ -51,7 +66,7 @@ export const MoneyBalance = ({ value }) => {
         fontSize={'44px'}
         fontWeight={'medium'}
         fontFamily={'Inter'}
-        animation={scaleAnimation}
+        animation={animation}
       >
         R$ {value}
       </Heading>
