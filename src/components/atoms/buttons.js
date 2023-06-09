@@ -1,4 +1,4 @@
-import { Button, IconButton } from '@chakra-ui/react'
+import { Button, IconButton, Image } from '@chakra-ui/react'
 import { colors, scaleAnimation } from 'styles'
 
 export const SubmitButton = ({ children, onClick, marginTop }) => {
@@ -71,5 +71,21 @@ export const AddButton = ({ icon, onClick }) => {
       animation={scaleAnimation}
       onClick={onClick}
     ></IconButton>
+  )
+}
+
+export const AvatarButton = ({ src, onClick }) => {
+  return (
+    <Button
+      w={'70px'}
+      h={'70px'}
+      onClick={onClick}
+      padding={'0px'}
+      margin={'0px'}
+      borderRadius={'20px'}
+      animation={scaleAnimation}
+    >
+      <Image w={'100%'} h={'100%'} src={src || 'avatar.svg'}></Image>
+    </Button>
   )
 }

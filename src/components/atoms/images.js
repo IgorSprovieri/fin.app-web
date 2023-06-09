@@ -36,14 +36,3 @@ export const RegisterTitleImage = () => {
     ></Image>
   )
 }
-
-export const AvatarImage = () => {
-  return (
-    <Image
-      width={70}
-      h={70}
-      src="avatar.svg"
-      animation={scaleAnimation}
-    ></Image>
-  )
-}

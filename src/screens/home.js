@@ -1,11 +1,6 @@
-import { Box, Flex } from '@chakra-ui/react'
-import {
-  AvatarImage,
-  WaveImage,
-  H2,
-  MoneyBalance,
-  FinancesManager
-} from 'components'
+import { Flex } from '@chakra-ui/react'
+import { WaveImage, FinancesManager } from 'components'
+import { FinancesHeader } from 'components/organisms/financesHeader'
 
 export const HomeScreen = () => {
   return (
@@ -18,27 +13,7 @@ export const HomeScreen = () => {
         flexDir={'column'}
         align={'center'}
       >
-        <Flex
-          w={'570px'}
-          marginTop={'32px'}
-          flexDir={'row'}
-          align={'center'}
-          justify={'space-between'}
-        >
-          <AvatarImage></AvatarImage>
-          <H2>Igor Sprovieri</H2>
-          <Box w={70} h={70}></Box>
-        </Flex>
-        <Flex
-          w={'570px'}
-          h={'80px'}
-          marginTop={'32px'}
-          flexDir={'row'}
-          align={'center'}
-          justify={'space-between'}
-        >
-          <MoneyBalance value={'1 000,00'}></MoneyBalance>
-        </Flex>
+        <FinancesHeader></FinancesHeader>
         <FinancesManager></FinancesManager>
       </Flex>
     </Flex>
