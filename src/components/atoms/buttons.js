@@ -45,15 +45,31 @@ export const LinkButton = ({ children, onClick }) => {
   )
 }
 
-export const MenuButton = ({ icon }) => {
+export const MenuButton = ({ icon, onClick }) => {
   return (
     <IconButton
       variant="outline"
       border={'0px'}
       h={'34px'}
-      w={'34px'}
+      w={'44px'}
+      borderRadius={'50px'}
       icon={icon}
       animation={scaleAnimation}
+      onClick={onClick}
+    ></IconButton>
+  )
+}
+
+export const AddButton = ({ icon, onClick }) => {
+  return (
+    <IconButton
+      h={'34px'}
+      w={'44px'}
+      borderRadius={'50px'}
+      bgColor={colors.blue}
+      icon={icon}
+      animation={scaleAnimation}
+      onClick={onClick}
     ></IconButton>
   )
 }

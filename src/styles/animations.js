@@ -18,5 +18,15 @@ const scale = keyframes`
    }
 `
 
+const slideUp = keyframes`
+  0% { 
+    transform: translateY(1000px)
+   }
+  100% { 
+    transform: translateY(0)
+   }
+`
+
+export const slideUpAnimation = `${slideUp} 0.5s forwards`
 export const fadeAnimation = `${fade} 1.5s forwards`
 export const scaleAnimation = `${scale} 0.5s forwards`

@@ -4,11 +4,7 @@ import {
   WaveImage,
   H2,
   MoneyBalance,
-  MenuButton,
-  HomeIcon,
-  TransitionsIcon,
-  BalanceIcon,
-  DateInput
+  FinancesManager
 } from 'components'
 
 export const HomeScreen = () => {
@@ -42,20 +38,8 @@ export const HomeScreen = () => {
           justify={'space-between'}
         >
           <MoneyBalance value={'1 000,00'}></MoneyBalance>
-          <DateInput></DateInput>
         </Flex>
-        <Flex
-          w={'300px'}
-          h={'32px'}
-          marginTop={'32px'}
-          flexDir={'row'}
-          align={'center'}
-          justify={'space-between'}
-        >
-          <MenuButton icon={<HomeIcon></HomeIcon>}></MenuButton>
-          <MenuButton icon={<TransitionsIcon></TransitionsIcon>}></MenuButton>
-          <MenuButton icon={<BalanceIcon></BalanceIcon>}></MenuButton>
-        </Flex>
+        <FinancesManager></FinancesManager>
       </Flex>
     </Flex>
   )

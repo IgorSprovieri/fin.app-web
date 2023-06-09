@@ -24,11 +24,13 @@ export const DateInput = () => {
       type={'date'}
       animation={scaleAnimation}
       fontFamily={'Inter'}
-      marginTop={'16px'}
-      fontSize={'20px'}
-      w={'162px'}
-      padding={0}
+      fontSize={'18px'}
+      w={'128px'}
+      h={'32px'}
       border={0}
+      padding={'8px'}
+      borderRadius={'50px'}
+      bgColor={colors.blue}
     ></Input>
   )
 }

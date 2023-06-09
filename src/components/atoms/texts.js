@@ -1,6 +1,19 @@
 import { Flex, Heading } from '@chakra-ui/react'
 import { colors, scaleAnimation } from 'styles'
 
+export const H1 = ({ children }) => {
+  return (
+    <Heading
+      color={colors.background}
+      fontSize={'32px'}
+      fontWeight={'bold'}
+      fontFamily={'Inter'}
+    >
+      {children}
+    </Heading>
+  )
+}
+
 export const H2 = ({ children }) => {
   return (
     <Heading
