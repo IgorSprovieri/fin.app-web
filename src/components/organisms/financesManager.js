@@ -1,4 +1,6 @@
+import { Flex } from '@chakra-ui/react'
 import { Main, Menu } from 'components/molecules'
+import { FinanceCard } from 'components/molecules/financeCard'
 import { Modal } from 'components/molecules/modal'
 import { useState } from 'react'
 import { slideUpAnimation } from 'styles'
@@ -41,7 +43,22 @@ export const FinancesManager = () => {
         onBalance={() => onClickBalance()}
         onAdd={() => onClickAdd()}
       ></Menu>
-      <Main title={mainTitle} animation={mainAnimation}></Main>
+      <Main title={mainTitle} animation={mainAnimation}>
+        <Flex w={'100%'} h={'100%'} flexDir={'column'} justify={'flex-start'}>
+          <FinanceCard
+            name={'Salário'}
+            value={2000.0}
+            date={'01-05-2023'}
+            category={'Receita'}
+          ></FinanceCard>
+          <FinanceCard
+            name={'Lanche'}
+            value={-24.9}
+            date={'01-06-2023'}
+            category={'Alimentação'}
+          ></FinanceCard>
+        </Flex>
+      </Main>
       <Modal
         header={modalHeader}
         isOpen={modalIsOpen}

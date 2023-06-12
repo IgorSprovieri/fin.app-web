@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react'
 import { DateInput, H1 } from 'components/atoms'
 import { colors } from 'styles'
 
-export const Main = ({ title, animation, render }) => {
+export const Main = ({ title, animation, children }) => {
   return (
     <Flex
       w={'570px'}
@@ -26,7 +26,9 @@ export const Main = ({ title, animation, render }) => {
         <H1>{title}</H1>
         <DateInput></DateInput>
       </Flex>
-      <Flex>{render}</Flex>
+      <Flex w={'100%'} h={'100%'} marginTop={'32px'}>
+        {children}
+      </Flex>
     </Flex>
   )
 }
