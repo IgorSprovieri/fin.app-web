@@ -5,10 +5,15 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
-  Button
+  DrawerCloseButton
 } from '@chakra-ui/react'
-import { ModalInput, MoneyInput } from 'components/atoms'
+import {
+  MainInput,
+  MoneyInput,
+  SelectInput,
+  SubmitModalButton,
+  SwitchInput
+} from 'components/atoms'
 import React from 'react'
 import { colors } from 'styles'
 
@@ -24,18 +29,31 @@ export const Modal = ({ header, isOpen, onClose }) => {
 
         <DrawerBody>
           <MoneyInput></MoneyInput>
-          <ModalInput type={'Date'}></ModalInput>
-          <ModalInput placeholder="Nome" type={'Text'}></ModalInput>
+          <MainInput
+            placeholder={'Nome'}
+            marginTop={'16px'}
+            whiteBg={true}
+          ></MainInput>
+          <MainInput
+            type={'date'}
+            marginTop={'16px'}
+            whiteBg={true}
+          ></MainInput>
+          <SelectInput
+            type={'date'}
+            marginTop={'16px'}
+            whiteBg={true}
+            placeholder="Categoria"
+          >
+            <option value="1">Casa</option>
+            <option value="2">Compras</option>
+            <option value="3">Lazer</option>
+          </SelectInput>
+          <SwitchInput label={'Crédito?'} marginTop={'16px'}></SwitchInput>
         </DrawerBody>
 
         <DrawerFooter>
-          <Button
-            fontFamily={'Inter'}
-            bgColor={colors.blue}
-            color={colors.white}
-          >
-            Adicionar
-          </Button>
+          <SubmitModalButton>Adicionar</SubmitModalButton>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

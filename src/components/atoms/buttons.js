@@ -26,6 +26,32 @@ export const SubmitButton = ({ children, onClick, marginTop }) => {
   )
 }
 
+export const SubmitModalButton = ({ children, onClick, marginTop, blue }) => {
+  return (
+    <Button
+      onClick={onClick}
+      bgColor={colors.blue}
+      color={colors.white}
+      borderRadius={17}
+      w={'180px'}
+      h={'50px'}
+      marginTop={marginTop || '64px'}
+      fontFamily={'Inter'}
+      fontWeight={'regular'}
+      fontSize={'18px'}
+      animation={scaleAnimation}
+      _hover={{
+        background: colors.white,
+        border: '2px solid ',
+        borderColor: colors.blue,
+        color: colors.blue
+      }}
+    >
+      {children}
+    </Button>
+  )
+}
+
 export const LinkButton = ({ children, onClick }) => {
   return (
     <Button

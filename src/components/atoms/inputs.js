@@ -4,25 +4,62 @@ import {
   Input,
   NumberInput,
   NumberInputField,
+  Select,
   Switch
 } from '@chakra-ui/react'
 import { useState } from 'react'
-
 import { colors, scaleAnimation } from 'styles'
 
-export const LoginInput = ({ placeholder, marginTop, type }) => {
+export const MainInput = ({
+  value,
+  onChange,
+  placeholder,
+  marginTop,
+  type,
+  whiteBg
+}) => {
   return (
     <Input
-      borderRadius={20}
+      borderRadius={'20px'}
       marginTop={marginTop}
-      h={50}
+      h={'50px'}
       placeholder={placeholder}
-      color={colors.white}
-      fontSize={22}
-      type={type}
+      color={whiteBg ? colors.background : colors.white}
+      fontSize={'18px'}
+      type={type || 'text'}
       animation={scaleAnimation}
       fontFamily={'Inter'}
+      value={value}
+      onChange={onChange}
     ></Input>
+  )
+}
+
+export const SelectInput = ({
+  value,
+  onChange,
+  placeholder,
+  marginTop,
+  type,
+  whiteBg,
+  children
+}) => {
+  return (
+    <Select
+      borderRadius={'20px'}
+      marginTop={marginTop}
+      h={'50px'}
+      placeholder={placeholder}
+      color={whiteBg ? colors.background : colors.white}
+      fontSize={'16px'}
+      type={type || 'text'}
+      animation={scaleAnimation}
+      fontFamily={'Inter'}
+      value={value}
+      onChange={onChange}
+    >
+      {children}
+    </Select>
   )
 }
 
@@ -44,14 +81,19 @@ export const DateInput = () => {
   )
 }
 
-export const ModalInput = ({ placeholder, type }) => {
+export const SwitchInput = ({ value, onChange, label, marginTop }) => {
   return (
-    <Input
-      borderRadius={'20px'}
-      marginTop={'16px'}
-      placeholder={placeholder}
-      type={type || 'Text'}
-    />
+    <Flex flexDir={'row'} align={'center'} marginTop={marginTop}>
+      <Switch
+        size="lg"
+        value={value}
+        onChange={onChange}
+        marginRight={'16px'}
+      ></Switch>
+      <Heading fontSize={'16px'} fontWeight={'medium'} fontFamily={'Inter'}>
+        {label}
+      </Heading>
+    </Flex>
   )
 }
 
@@ -83,7 +125,12 @@ export const MoneyInput = ({ onChange, value }) => {
         border={''}
         bgColor={isExpense === true ? colors.red : colors.green}
       >
-        <NumberInputField borderRadius={'20px'} border={''} />
+        <NumberInputField
+          borderRadius={'20px'}
+          border={''}
+          h={'50px'}
+          fontSize={'18px'}
+        ></NumberInputField>
       </NumberInput>
     </>
   )

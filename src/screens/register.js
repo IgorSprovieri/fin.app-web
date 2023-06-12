@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react'
 import {
   LinkButton,
-  LoginInput,
+  MainInput,
   RegisterTitleImage,
   SubmitButton,
   WaveImage
@@ -26,21 +26,21 @@ export const RegisterScreen = () => {
       <WaveImage></WaveImage>
       <Flex flexDir={'column'} align={'center'} w={310}>
         <RegisterTitleImage></RegisterTitleImage>
-        <LoginInput
+        <MainInput
           placeholder={'Nome'}
           marginTop={'48px'}
           type={'text'}
-        ></LoginInput>
-        <LoginInput
+        ></MainInput>
+        <MainInput
           placeholder={'E-mail'}
           marginTop={'16px'}
           type={'text'}
-        ></LoginInput>
-        <LoginInput
+        ></MainInput>
+        <MainInput
           placeholder={'Senha'}
           marginTop={'16px'}
           type={'password'}
-        ></LoginInput>
+        ></MainInput>
         <SubmitButton marginTop={'48px'} onClick={() => onSubmit()}>
           Criar Conta
         </SubmitButton>
