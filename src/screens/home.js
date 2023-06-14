@@ -1,6 +1,5 @@
 import { Flex } from '@chakra-ui/react'
-import { WaveImage, FinancesManager } from 'components'
-import { FinancesHeader } from 'components/organisms/financesHeader'
+import { WaveImage, FinancesManager, FinancesHeader } from 'components'
 
 export const HomeScreen = () => {
   return (
