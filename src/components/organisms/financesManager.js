@@ -49,7 +49,6 @@ export const FinancesManager = () => {
             name={'Salário'}
             value={2000.0}
             date={'01-05-2023'}
-            category={'Receita'}
           ></FinanceCard>
           <FinanceCard
             name={'Lanche'}

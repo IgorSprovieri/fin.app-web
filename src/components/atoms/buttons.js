@@ -1,7 +1,7 @@
 import { Button, IconButton, Image } from '@chakra-ui/react'
 import { colors, scaleAnimation } from 'styles'
 
-export const SubmitButton = ({ children, onClick, marginTop }) => {
+export const SubmitButton = ({ children, onClick, marginTop, disabled }) => {
   return (
     <Button
       onClick={onClick}
@@ -10,6 +10,8 @@ export const SubmitButton = ({ children, onClick, marginTop }) => {
       borderRadius={17}
       w={220}
       h={50}
+      type="submit"
+      disabled={disabled}
       marginTop={marginTop || '64px'}
       fontFamily={'Inter'}
       fontWeight={'regular'}

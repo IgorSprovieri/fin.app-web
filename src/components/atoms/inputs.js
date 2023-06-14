@@ -16,10 +16,13 @@ export const MainInput = ({
   placeholder,
   marginTop,
   type,
-  whiteBg
+  whiteBg,
+  name,
+  error
 }) => {
   return (
     <Input
+      name={name}
       borderRadius={'20px'}
       marginTop={marginTop}
       h={'50px'}
@@ -31,6 +34,7 @@ export const MainInput = ({
       fontFamily={'Inter'}
       value={value}
       onChange={onChange}
+      borderColor={error ? colors.red : colors.gray}
     ></Input>
   )
 }
