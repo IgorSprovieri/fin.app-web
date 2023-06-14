@@ -3,11 +3,13 @@ import { useMutation } from '@tanstack/react-query'
 import {
   LinkButton,
   MainInput,
+  PopUp,
   RegisterTitleImage,
   SubmitButton,
   WaveImage
 } from 'components'
 import { useFormik } from 'formik'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { postUser } from 'services'
 import { object, string } from 'yup'
@@ -15,13 +17,20 @@ import { object, string } from 'yup'
 export const RegisterScreen = () => {
   const navigate = useNavigate()
 
+  const [openPopUp, setOpenPopUp] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
   const mutation = useMutation({
     mutationFn: postUser,
     onSuccess: (data) => {
       console.log(data)
     },
     onError: (error) => {
-      console.log(error)
+      setOpenPopUp(true)
+      setErrorMessage(error.message)
+      setTimeout(() => {
+        setOpenPopUp(false)
+      }, 500)
     }
   })
 
@@ -54,6 +63,7 @@ export const RegisterScreen = () => {
       h={'100vh'}
     >
       <WaveImage></WaveImage>
+      <PopUp message={errorMessage} title={'Erro'} setOpen={openPopUp}></PopUp>
       <Flex flexDir={'column'} align={'center'} w={310}>
         <RegisterTitleImage></RegisterTitleImage>
         <MainInput

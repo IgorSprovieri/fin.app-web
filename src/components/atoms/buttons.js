@@ -35,8 +35,8 @@ export const SubmitModalButton = ({ children, onClick, marginTop, blue }) => {
       bgColor={colors.blue}
       color={colors.white}
       borderRadius={17}
-      w={'180px'}
-      h={'50px'}
+      w={'160px'}
+      h={'44px'}
       marginTop={marginTop || '64px'}
       fontFamily={'Inter'}
       fontWeight={'regular'}
