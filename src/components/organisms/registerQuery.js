@@ -2,19 +2,21 @@ import { useMutation } from '@tanstack/react-query'
 import { PopUp, RegisterForm } from 'components/molecules'
 
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { postUser } from 'services'
+import { postUser, setUser } from 'services'
 
 export const RegisterQuery = () => {
   const navigate = useNavigate()
-
+  const dispatch = useDispatch()
   const [openPopUp, setOpenPopUp] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
   const mutation = useMutation({
     mutationFn: postUser,
     onSuccess: (data) => {
-      navigate('/changeAvatar')
+      dispatch(setUser(data))
+      navigate('/avatar')
     },
     onError: (error) => {
       setOpenPopUp(true)
