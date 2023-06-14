@@ -1,4 +1,5 @@
 import { Flex } from '@chakra-ui/react'
+import { useMutation } from '@tanstack/react-query'
 import {
   LinkButton,
   MainInput,
@@ -8,10 +9,21 @@ import {
 } from 'components'
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
+import { postUser } from 'services'
 import { object, string } from 'yup'
 
 export const RegisterScreen = () => {
   const navigate = useNavigate()
+
+  const mutation = useMutation({
+    mutationFn: postUser,
+    onSuccess: (data) => {
+      console.log(data)
+    },
+    onError: (error) => {
+      console.log(error)
+    }
+  })
 
   const onLogin = () => {
     navigate('/login')
@@ -29,7 +41,7 @@ export const RegisterScreen = () => {
       password: string().required('Senha é Obrigatória')
     }),
     onSubmit: (data) => {
-      console.log(data)
+      mutation.mutate(data)
     }
   })
 
