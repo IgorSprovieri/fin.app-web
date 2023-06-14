@@ -16,7 +16,7 @@ export const FinanceCard = ({ name, value, date, category }) => {
   }
 
   const dateFormat = (date) => {
-    const newDate = new Date(date)
+    const newDate = new Date()
     const monthFormat = new Intl.DateTimeFormat('pt-BR', { month: 'long' })
 
     const day = newDate.getDate()

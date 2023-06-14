@@ -21,9 +21,13 @@ export const Modal = ({ header, isOpen, onClose }) => {
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent>
-        <DrawerCloseButton />
-        <DrawerHeader color={colors.background} fontFamily={'Inter'}>
+      <DrawerContent borderRadius={'17px'} margin={'16px'}>
+        <DrawerCloseButton margin={'8px'}></DrawerCloseButton>
+        <DrawerHeader
+          color={colors.background}
+          fontFamily={'Inter'}
+          fontSize={'24px'}
+        >
           {header}
         </DrawerHeader>
 
