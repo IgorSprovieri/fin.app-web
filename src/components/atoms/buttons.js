@@ -7,9 +7,9 @@ export const SubmitButton = ({ children, onClick, marginTop, disabled }) => {
       onClick={onClick}
       bgColor={colors.orange}
       color={colors.background}
-      borderRadius={17}
-      w={220}
-      h={50}
+      borderRadius={'17px'}
+      w={'220px'}
+      h={'50px'}
       type="submit"
       disabled={disabled}
       marginTop={marginTop || '64px'}
@@ -54,16 +54,16 @@ export const SubmitModalButton = ({ children, onClick, marginTop, blue }) => {
   )
 }
 
-export const LinkButton = ({ children, onClick }) => {
+export const LinkButton = ({ children, onClick, marginTop }) => {
   return (
     <Button
       onClick={onClick}
       color={colors.white}
       fontWeight={'regular'}
       fontSize={'18px'}
-      w={220}
+      w={'220px'}
       h={'24px'}
-      marginTop={'24px'}
+      marginTop={marginTop || '24px'}
       variant="link"
       animation={scaleAnimation}
       fontFamily={'Inter'}
@@ -102,18 +102,30 @@ export const AddButton = ({ icon, onClick }) => {
   )
 }
 
-export const AvatarButton = ({ src, onClick }) => {
+export const AvatarButton = ({
+  src,
+  onClick,
+  marginTop,
+  size,
+  borderRadius
+}) => {
   return (
     <Button
-      w={'70px'}
-      h={'70px'}
+      w={size || '70px'}
+      h={size || '70px'}
       onClick={onClick}
       padding={'0px'}
       margin={'0px'}
-      borderRadius={'20px'}
+      borderRadius={borderRadius || '20px'}
       animation={scaleAnimation}
+      marginTop={marginTop}
     >
-      <Image w={'100%'} h={'100%'} src={src || 'avatar.svg'}></Image>
+      <Image
+        borderRadius={borderRadius || '20px'}
+        w={'100%'}
+        h={'100%'}
+        src={src || 'avatar.svg'}
+      ></Image>
     </Button>
   )
 }

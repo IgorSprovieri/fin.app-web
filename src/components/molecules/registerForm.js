@@ -12,10 +12,6 @@ import { object, string } from 'yup'
 export const RegisterForm = ({ mutation }) => {
   const navigate = useNavigate()
 
-  const onLogin = () => {
-    navigate('/login')
-  }
-
   const { handleSubmit, values, handleChange, errors } = useFormik({
     initialValues: {
       name: '',
@@ -33,7 +29,7 @@ export const RegisterForm = ({ mutation }) => {
   })
 
   return (
-    <Flex flexDir={'column'} align={'center'} w={310}>
+    <Flex flexDir={'column'} align={'center'} w={'310px'}>
       <RegisterTitleImage></RegisterTitleImage>
       <MainInput
         name={'name'}
@@ -65,7 +61,7 @@ export const RegisterForm = ({ mutation }) => {
       <SubmitButton marginTop={'48px'} onClick={handleSubmit}>
         Criar Conta
       </SubmitButton>
-      <LinkButton onClick={() => onLogin()}>
+      <LinkButton onClick={() => navigate('/login')}>
         Já tem conta? Faça o Login!
       </LinkButton>
     </Flex>

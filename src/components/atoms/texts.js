@@ -20,7 +20,7 @@ export const H1 = ({ children }) => {
   )
 }
 
-export const H2 = ({ children }) => {
+export const H2 = ({ children, marginTop }) => {
   return (
     <Heading
       color={colors.white}
@@ -28,6 +28,7 @@ export const H2 = ({ children }) => {
       fontWeight={'regular'}
       fontFamily={'Inter'}
       animation={scaleAnimation}
+      marginTop={marginTop}
     >
       {children}
     </Heading>

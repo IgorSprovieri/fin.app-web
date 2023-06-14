@@ -27,8 +27,8 @@ export const LoginTitleImage = () => {
   return (
     <Image
       marginTop={'32px'}
-      width={190}
-      h={51}
+      width={'190px'}
+      h={'51px'}
       src="loginTitle.svg"
       animation={scaleAnimation}
     ></Image>
@@ -39,9 +39,21 @@ export const RegisterTitleImage = () => {
   return (
     <Image
       marginTop={'80px'}
-      width={236}
-      h={51}
+      width={'236px'}
+      h={'51px'}
       src="registerTitle.svg"
+      animation={scaleAnimation}
+    ></Image>
+  )
+}
+
+export const AvatarTitleImage = ({ marginTop }) => {
+  return (
+    <Image
+      marginTop={marginTop}
+      width={'260px'}
+      h={'51px'}
+      src="avatarTitle.svg"
       animation={scaleAnimation}
     ></Image>
   )

@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { AvatarButton, H2, MoneyBalance } from 'components/atoms'
 
-export const Header = ({ username, onAvatar }) => {
+export const Header = ({ username, avatarUrl, onAvatar }) => {
   return (
     <>
       <Flex
@@ -11,7 +11,7 @@ export const Header = ({ username, onAvatar }) => {
         align={'center'}
         justify={'space-between'}
       >
-        <AvatarButton onClick={onAvatar}></AvatarButton>
+        <AvatarButton src={avatarUrl} onClick={onAvatar}></AvatarButton>
         <H2>{username}</H2>
         <Box w={70} h={70}></Box>
       </Flex>

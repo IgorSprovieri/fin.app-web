@@ -15,10 +15,6 @@ export const LoginScreen = () => {
     navigate('/home')
   }
 
-  const onRegister = () => {
-    navigate('/register')
-  }
-
   return (
     <Flex
       flexDir={'column'}
@@ -28,7 +24,7 @@ export const LoginScreen = () => {
       h={'100vh'}
     >
       <WaveImage></WaveImage>
-      <Flex flexDir={'column'} align={'center'} w={310}>
+      <Flex flexDir={'column'} align={'center'} w={'310px'}>
         <LoginTitleImage></LoginTitleImage>
         <MainInput
           placeholder={'E-mail'}
@@ -41,7 +37,9 @@ export const LoginScreen = () => {
           type={'password'}
         ></MainInput>
         <SubmitButton onClick={() => onSubmit()}>Entrar</SubmitButton>
-        <LinkButton onClick={() => onRegister()}>Crie sua conta</LinkButton>
+        <LinkButton onClick={() => navigate('/register')}>
+          Crie sua conta
+        </LinkButton>
       </Flex>
     </Flex>
   )
