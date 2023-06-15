@@ -5,7 +5,16 @@ export const AvatarScreen = () => {
   return (
     <Flex w={'100dvw'} h={'100dvh'}>
       <WaveImage></WaveImage>
-      <ChangeAvatarQuery></ChangeAvatarQuery>
+      <Flex
+        zIndex={1}
+        w={'100dvw'}
+        h={'100dvh'}
+        flexDir={'column'}
+        align={'center'}
+        justify={'center'}
+      >
+        <ChangeAvatarQuery></ChangeAvatarQuery>
+      </Flex>
     </Flex>
   )
 }

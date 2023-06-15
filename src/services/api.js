@@ -13,6 +13,20 @@ export const postUser = async (data) => {
   }
 }
 
+export const getUser = async (token) => {
+  try {
+    console.log(token)
+    const result = await instance.get('/user', {
+      headers: {
+        Authorization: `bearer ${token}`
+      }
+    })
+    return result.data
+  } catch (error) {
+    throw new Error('Usuário não autenticado')
+  }
+}
+
 export const putUserAvatar = async (data, token) => {
   try {
     const result = await instance.put(
