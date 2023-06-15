@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react'
-import { AvatarButton, AvatarTitleImage, H2, SubmitButton } from 'components'
+import { AvatarButton, H2, SubmitButton, WalletTitle } from 'components'
 import { useSelector } from 'react-redux'
 import { selectUser } from 'storage'
 import { useRef } from 'react'
@@ -24,9 +24,11 @@ export const ChangeAvatar = ({ mutation }) => {
 
   return (
     <Flex flexDir={'column'} align={'center'} w={'310px'}>
-      <AvatarTitleImage></AvatarTitleImage>
+      <WalletTitle marginTop={'32px'} mL={'24px'} mR={'28px'}>
+        Foto de Perfil
+      </WalletTitle>
       <AvatarButton
-        marginTop={'48px'}
+        marginTop={'32px'}
         size={'128px'}
         onClick={() => inputFileRef?.current?.click()}
         src={user.avatar_url}

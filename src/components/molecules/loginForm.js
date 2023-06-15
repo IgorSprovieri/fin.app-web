@@ -1,9 +1,9 @@
 import { Flex } from '@chakra-ui/react'
 import {
   LinkButton,
-  LoginTitleImage,
   MainInput,
-  SubmitButton
+  SubmitButton,
+  WalletTitle
 } from 'components/atoms'
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
@@ -27,7 +27,10 @@ export const LoginForm = ({ mutation }) => {
 
   return (
     <Flex flexDir={'column'} align={'center'} w={'310px'}>
-      <LoginTitleImage></LoginTitleImage>
+      <WalletTitle marginTop={'32px'} mL={'38px'} mR={'30px'}>
+        Login
+      </WalletTitle>
+
       <MainInput
         name={'email'}
         placeholder={'E-mail'}

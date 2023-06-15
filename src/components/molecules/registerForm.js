@@ -1,10 +1,5 @@
 import { Flex } from '@chakra-ui/react'
-import {
-  LinkButton,
-  MainInput,
-  RegisterTitleImage,
-  SubmitButton
-} from 'components'
+import { LinkButton, MainInput, SubmitButton, WalletTitle } from 'components'
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import { object, string } from 'yup'
@@ -30,7 +25,9 @@ export const RegisterForm = ({ mutation }) => {
 
   return (
     <Flex flexDir={'column'} align={'center'} w={'310px'}>
-      <RegisterTitleImage></RegisterTitleImage>
+      <WalletTitle marginTop={'80px'} mL={'24px'} mR={'16px'}>
+        Criar Conta
+      </WalletTitle>
       <MainInput
         name={'name'}
         placeholder={'Nome'}
