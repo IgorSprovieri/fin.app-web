@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { putUserAvatar, selectUser, setAvatarUrl } from 'services'
 import { useMutation } from '@tanstack/react-query'
-import { ChangeAvatar, PopUp } from 'components/molecules'
+import { ChangeAvatar, Alert } from 'components/molecules'
 import { useState } from 'react'
 
 export const ChangeAvatarQuery = () => {
@@ -26,7 +26,7 @@ export const ChangeAvatarQuery = () => {
 
   return (
     <>
-      <PopUp message={errorMessage} title={'Erro'} setOpen={openPopUp}></PopUp>
+      <Alert message={errorMessage} title={'Erro'} setOpen={openPopUp}></Alert>
       <ChangeAvatar mutation={mutation}></ChangeAvatar>
     </>
   )

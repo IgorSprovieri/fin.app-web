@@ -15,7 +15,6 @@ export const postUser = async (data) => {
 
 export const getUser = async (token) => {
   try {
-    console.log(token)
     const result = await instance.get('/user', {
       headers: {
         Authorization: `bearer ${token}`

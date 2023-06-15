@@ -1,28 +1,21 @@
 import { Flex } from '@chakra-ui/react'
-import { Main, Menu } from 'components/molecules'
-import { FinanceCard } from 'components/molecules/financeCard'
-import { Modal } from 'components/molecules/modal'
+import { Main, Menu, Modal, FinanceCard } from 'components/molecules'
 import { useState } from 'react'
-import { slideUpAnimation } from 'styles'
 
-export const FinancesManager = () => {
-  const [mainAnimation, setMainAnimation] = useState(slideUpAnimation)
+export const FinancesManager = ({ finances }) => {
   const [mainTitle, setMainTitle] = useState('Transações')
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [modalHeader, setModalHeader] = useState('')
 
   const onClickHome = () => {
-    setMainAnimation(slideUpAnimation)
     setMainTitle('Categorias')
   }
 
   const onClickTransitions = () => {
-    setMainAnimation(slideUpAnimation)
     setMainTitle('Transações')
   }
 
   const onClickBalance = () => {
-    setMainAnimation(slideUpAnimation)
     setMainTitle('Balanço')
   }
 
@@ -43,19 +36,17 @@ export const FinancesManager = () => {
         onBalance={() => onClickBalance()}
         onAdd={() => onClickAdd()}
       ></Menu>
-      <Main title={mainTitle} animation={mainAnimation}>
+      <Main title={mainTitle}>
         <Flex w={'100%'} h={'100%'} flexDir={'column'} justify={'flex-start'}>
-          <FinanceCard
-            name={'Salário'}
-            value={2000.0}
-            date={'01-05-2023'}
-          ></FinanceCard>
-          <FinanceCard
-            name={'Lanche'}
-            value={-24.9}
-            date={'01-06-2023'}
-            category={'Alimentação'}
-          ></FinanceCard>
+          {finances.map((element) => (
+            <FinanceCard
+              key={element.id}
+              name={element.name}
+              value={element.value}
+              date={element.date}
+              category={element.category}
+            ></FinanceCard>
+          ))}
         </Flex>
       </Main>
       <Modal

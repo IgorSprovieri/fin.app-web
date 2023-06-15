@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { PopUp, LoginForm } from 'components/molecules'
+import { Alert, LoginForm } from 'components/molecules'
 
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -29,7 +29,7 @@ export const LoginQuery = () => {
 
   return (
     <>
-      <PopUp message={errorMessage} title={'Erro'} setOpen={openPopUp}></PopUp>
+      <Alert message={errorMessage} title={'Erro'} setOpen={openPopUp}></Alert>
       <LoginForm mutation={mutation}></LoginForm>
     </>
   )

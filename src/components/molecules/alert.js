@@ -9,7 +9,7 @@ import {
 import { SubmitModalButton } from 'components/atoms'
 import { useEffect, useState } from 'react'
 
-export const PopUp = ({ message, title, setOpen }) => {
+export const Alert = ({ message, title, setOpen }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
