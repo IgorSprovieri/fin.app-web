@@ -104,7 +104,7 @@ export const FinanceCard = ({ name, value, date, category }) => {
             textAlign={'right'}
             w={'100%'}
           >
-            {value > 0 ? 'Receita' : category}
+            {value > 0 ? 'Receita' : category || 'Despesa'}
           </Heading>
         </Flex>
       </Button>

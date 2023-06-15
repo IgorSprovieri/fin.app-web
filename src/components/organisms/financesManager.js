@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react'
 import { Main, Menu, Modal, FinanceCard } from 'components/molecules'
 import { useState } from 'react'
 
-export const FinancesManager = ({ finances }) => {
+export const FinancesManager = ({ finances, categories }) => {
   const [mainTitle, setMainTitle] = useState('Transações')
   const [menuSelector, setMenuSelector] = useState(1)
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -12,7 +12,7 @@ export const FinancesManager = ({ finances }) => {
     setModalIsOpen(false)
   }
 
-  const ListFinances = ({ finances }) => {
+  const ListFinances = () => {
     return (
       <>
         {' '}
@@ -72,6 +72,7 @@ export const FinancesManager = ({ finances }) => {
         header={modalHeader}
         isOpen={modalIsOpen}
         onClose={() => onCloseModal()}
+        categories={categories}
       ></Modal>
     </>
   )

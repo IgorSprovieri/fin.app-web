@@ -14,7 +14,7 @@ export const HomeScreen = () => {
       name: 'Hamburguer',
       value: -22.9,
       date: '06-06-2023',
-      category: 'Lazer'
+      category: 'Comida'
     },
     {
       id: 2,
@@ -25,11 +25,10 @@ export const HomeScreen = () => {
     }
   ]
 
-  /*
- const fakeCategories = [
+  const fakeCategories = [
     {
       id: 0,
-      category: 'Salário'
+      category: 'Alimentação'
     },
     {
       id: 1,
@@ -40,7 +39,7 @@ export const HomeScreen = () => {
       category: 'Casa'
     }
   ]
-*/
+
   return (
     <Flex w={'100dvw'} h={'100dvh'}>
       <WaveImage></WaveImage>
@@ -52,7 +51,10 @@ export const HomeScreen = () => {
         align={'center'}
       >
         <FinancesHeader></FinancesHeader>
-        <FinancesManager finances={fakeFinances}></FinancesManager>
+        <FinancesManager
+          finances={fakeFinances}
+          categories={fakeCategories}
+        ></FinancesManager>
       </Flex>
     </Flex>
   )

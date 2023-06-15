@@ -17,7 +17,7 @@ import {
 import React from 'react'
 import { colors } from 'styles'
 
-export const Modal = ({ header, isOpen, onClose }) => {
+export const Modal = ({ header, isOpen, onClose, categories }) => {
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
@@ -49,9 +49,11 @@ export const Modal = ({ header, isOpen, onClose }) => {
             whiteBg={true}
             placeholder="Categoria"
           >
-            <option value="1">Casa</option>
-            <option value="2">Compras</option>
-            <option value="3">Lazer</option>
+            {categories.map((element) => (
+              <option key={element.id} value={element.category}>
+                {element.category}
+              </option>
+            ))}
           </SelectInput>
           <SwitchInput label={'Crédito?'} marginTop={'16px'}></SwitchInput>
         </DrawerBody>
