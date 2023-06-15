@@ -1,10 +1,10 @@
 import { useMutation } from '@tanstack/react-query'
 import { Alert, LoginForm } from 'components/molecules'
-
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { login, setUser } from 'services'
+import { login } from 'api'
+import { setUser } from 'storage'
 
 export const LoginQuery = () => {
   const navigate = useNavigate()

@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import { AvatarScreen, HomeScreen, LoginScreen, RegisterScreen } from 'screens'
 import { useMutation } from '@tanstack/react-query'
-import { getUser, selectUser } from './services'
+import { getUser } from 'api'
+import { selectUser } from 'storage'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 

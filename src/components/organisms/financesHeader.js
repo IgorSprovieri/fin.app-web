@@ -6,7 +6,7 @@ import {
 } from 'components/molecules'
 import { Flex } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
-import { selectUser } from 'services'
+import { selectUser } from 'storage'
 import { useState } from 'react'
 
 export const FinancesHeader = () => {

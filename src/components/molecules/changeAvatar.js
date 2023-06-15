@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react'
 import { AvatarButton, AvatarTitleImage, H2, SubmitButton } from 'components'
 import { useSelector } from 'react-redux'
-import { selectUser } from 'services'
+import { selectUser } from 'storage'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 

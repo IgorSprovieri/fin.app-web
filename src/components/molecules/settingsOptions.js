@@ -1,7 +1,7 @@
 import { Button, Flex } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { deleteUser } from 'services'
+import { deleteUser } from 'storage'
 
 export const SettingsOptions = () => {
   const navigate = useNavigate()
