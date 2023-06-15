@@ -1,15 +1,24 @@
 import { Button, IconButton, Image } from '@chakra-ui/react'
 import { colors, scaleAnimation } from 'styles'
 
-export const SubmitButton = ({ children, onClick, marginTop, disabled }) => {
+export const SubmitButton = ({
+  children,
+  onClick,
+  marginTop,
+  disabled,
+  w,
+  invertColor
+}) => {
   return (
     <Button
       onClick={onClick}
-      bgColor={colors.orange}
-      color={colors.background}
+      bgColor={invertColor ? colors.background : colors.orange}
+      color={invertColor ? colors.white : colors.background}
+      border={'1px solid'}
+      borderColor={invertColor ? colors.white : colors.orange}
       borderRadius={'17px'}
-      w={'220px'}
-      h={'50px'}
+      w={w || '220px'}
+      h={'48px'}
       type="submit"
       disabled={disabled}
       marginTop={marginTop || '64px'}
@@ -18,9 +27,10 @@ export const SubmitButton = ({ children, onClick, marginTop, disabled }) => {
       fontSize={'18px'}
       animation={scaleAnimation}
       _hover={{
-        background: colors.background,
-        border: '1px solid white',
-        color: colors.white
+        background: invertColor ? colors.white : colors.background,
+        border: '1px solid',
+        borderColor: invertColor ? colors.white : colors.orange,
+        color: invertColor ? colors.background : colors.white
       }}
     >
       {children}
@@ -54,14 +64,14 @@ export const SubmitModalButton = ({ children, onClick, marginTop, blue }) => {
   )
 }
 
-export const LinkButton = ({ children, onClick, marginTop }) => {
+export const LinkButton = ({ children, onClick, marginTop, w }) => {
   return (
     <Button
       onClick={onClick}
       color={colors.white}
       fontWeight={'regular'}
       fontSize={'18px'}
-      w={'220px'}
+      w={w || '220px'}
       h={'24px'}
       marginTop={marginTop || '24px'}
       variant="link"

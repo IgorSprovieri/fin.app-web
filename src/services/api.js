@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const unauthInstance = axios.create({
+const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL
 })
 
 export const postUser = async (data) => {
   try {
-    const result = await unauthInstance.post('/user', { ...data })
+    const result = await instance.post('/user', { ...data })
     return result.data
   } catch (error) {
     throw new Error('Usuário já existe')
@@ -15,7 +15,7 @@ export const postUser = async (data) => {
 
 export const putUserAvatar = async (data, token) => {
   try {
-    const result = await unauthInstance.put(
+    const result = await instance.put(
       '/user/avatar',
       { ...data },
       {
@@ -28,5 +28,14 @@ export const putUserAvatar = async (data, token) => {
     return result.data
   } catch (error) {
     throw new Error('Usuário já existe')
+  }
+}
+
+export const login = async (data) => {
+  try {
+    const result = await instance.post('/login', { ...data })
+    return result.data
+  } catch (error) {
+    throw new Error('Usuário ou Senha Inválidos')
   }
 }
