@@ -1,5 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
-import { AvatarScreen, HomeScreen, LoginScreen, RegisterScreen } from 'screens'
+import {
+  AvatarScreen,
+  EditUserScreen,
+  HomeScreen,
+  LoginScreen,
+  RegisterScreen
+} from 'screens'
 import { useMutation } from '@tanstack/react-query'
 import { getUser } from 'api'
 import { selectUser } from 'storage'
@@ -40,6 +46,12 @@ export const Auth = () => {
         path="/avatar"
         element={
           auth ? <AvatarScreen></AvatarScreen> : <LoginScreen></LoginScreen>
+        }
+      ></Route>
+      <Route
+        path="/editAccount"
+        element={
+          auth ? <EditUserScreen></EditUserScreen> : <LoginScreen></LoginScreen>
         }
       ></Route>
     </Routes>

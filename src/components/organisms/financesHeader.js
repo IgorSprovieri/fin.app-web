@@ -2,7 +2,7 @@ import {
   MoneyBalance,
   HeaderAvatar,
   Window,
-  SettingsOptions
+  SettingOptions
 } from 'components/molecules'
 import { Flex } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
@@ -22,7 +22,7 @@ export const FinancesHeader = () => {
         justify={'space-between'}
       >
         <Window setOpen={openWindow}>
-          <SettingsOptions></SettingsOptions>
+          <SettingOptions></SettingOptions>
         </Window>
         <HeaderAvatar
           username={user?.name}

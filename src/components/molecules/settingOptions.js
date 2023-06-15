@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { deleteUser } from 'storage'
 
-export const SettingsOptions = () => {
+export const SettingOptions = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   return (
@@ -16,11 +16,16 @@ export const SettingsOptions = () => {
       >
         Alterar Foto
       </Button>
-      <Button width={'100%'} borderRadius={'15px'} marginTop={'8px'}>
-        Alterar Senha
+      <Button
+        onClick={() => navigate('/editAccount')}
+        width={'100%'}
+        borderRadius={'15px'}
+        marginTop={'8px'}
+      >
+        Editar Conta
       </Button>
       <Button width={'100%'} borderRadius={'15px'} marginTop={'8px'}>
-        Alterar Perfil
+        Alterar Senha
       </Button>
       <Button
         onClick={() => {
