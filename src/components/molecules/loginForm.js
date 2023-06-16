@@ -1,5 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 import {
+  CancelButton,
   LinkButton,
   MainInput,
   SubmitButton,
@@ -52,15 +53,17 @@ export const LoginForm = ({ mutation }) => {
       <SubmitButton w={'260px'} marginTop={'40px'} onClick={handleSubmit}>
         Entrar
       </SubmitButton>
-      <SubmitButton
+      <CancelButton
         w={'260px'}
-        invertColor={true}
         marginTop={'12px'}
         onClick={() => navigate('/register')}
       >
         Criar Conta
-      </SubmitButton>
-      <LinkButton marginTop={'16px'} onClick={() => navigate('/register')}>
+      </CancelButton>
+      <LinkButton
+        marginTop={'16px'}
+        onClick={() => navigate('/reset-password')}
+      >
         Esqueci minha senha
       </LinkButton>
     </Flex>

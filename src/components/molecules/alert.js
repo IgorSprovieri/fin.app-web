@@ -18,19 +18,17 @@ export const Alert = ({ message, title, setOpen }) => {
     }
   }, [setOpen])
 
-  const onClose = () => {
-    setIsOpen(false)
-  }
-
   return (
     <Modal isOpen={isOpen}>
-      <ModalOverlay />
+      <ModalOverlay></ModalOverlay>
       <ModalContent borderRadius={'17px'}>
         <ModalHeader fontFamily={'Inter'}>{title}</ModalHeader>
         <ModalBody>{message}</ModalBody>
 
         <ModalFooter>
-          <SubmitModalButton onClick={onClose}>Fechar</SubmitModalButton>
+          <SubmitModalButton onClick={() => setIsOpen(false)}>
+            Fechar
+          </SubmitModalButton>
         </ModalFooter>
       </ModalContent>
     </Modal>

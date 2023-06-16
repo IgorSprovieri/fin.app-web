@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/react'
 import { DateInput, H1 } from 'components/atoms'
-import { colors } from 'styles'
+import { colors, slideUpAnimation } from 'styles'
 
-export const Main = ({ title, animation, children }) => {
+export const Main = ({ title, children }) => {
   return (
     <Flex
       w={'570px'}
@@ -12,7 +12,7 @@ export const Main = ({ title, animation, children }) => {
       marginBottom={'16px'}
       borderRadius={'32px'}
       padding={'32px'}
-      animation={animation}
+      animation={slideUpAnimation}
       flexDir={'column'}
       align={'center'}
       justify={'flex-start'}

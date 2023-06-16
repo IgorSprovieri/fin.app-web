@@ -4,7 +4,8 @@ import {
   EditUserScreen,
   HomeScreen,
   LoginScreen,
-  RegisterScreen
+  RegisterScreen,
+  ResetPasswordScreen
 } from 'screens'
 import { useMutation } from '@tanstack/react-query'
 import { getUser } from 'api'
@@ -53,6 +54,16 @@ export const Auth = () => {
         element={
           auth ? <EditUserScreen></EditUserScreen> : <LoginScreen></LoginScreen>
         }
+      ></Route>
+      <Route
+        path="/editAccount"
+        element={
+          auth ? <EditUserScreen></EditUserScreen> : <LoginScreen></LoginScreen>
+        }
+      ></Route>
+      <Route
+        path="/reset-password"
+        element={<ResetPasswordScreen></ResetPasswordScreen>}
       ></Route>
     </Routes>
   )

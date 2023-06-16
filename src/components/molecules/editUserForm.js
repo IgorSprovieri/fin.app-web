@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react'
-import { MainInput, SubmitButton, WalletTitle } from 'components'
+import { CancelButton, MainInput, SubmitButton, WalletTitle } from 'components'
 import { useFormik } from 'formik'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -34,7 +34,6 @@ export const EditUserForm = ({ mutation }) => {
         name={'name'}
         placeholder={'Nome'}
         marginTop={'48px'}
-        type={'text'}
         onChange={handleChange}
         value={values.name}
         error={errors.name}
@@ -43,21 +42,20 @@ export const EditUserForm = ({ mutation }) => {
         name={'email'}
         placeholder={'E-mail'}
         marginTop={'16px'}
-        type={'text'}
         onChange={handleChange}
         value={values.email}
         error={errors.email}
       ></MainInput>
-      <SubmitButton marginTop={'48px'} onClick={handleSubmit}>
+      <SubmitButton w={'260px'} marginTop={'48px'} onClick={handleSubmit}>
         Alterar
       </SubmitButton>
-      <SubmitButton
-        invertColor={true}
+      <CancelButton
+        w={'260px'}
         marginTop={'12px'}
         onClick={() => navigate('/home')}
       >
         Voltar
-      </SubmitButton>
+      </CancelButton>
     </Flex>
   )
 }

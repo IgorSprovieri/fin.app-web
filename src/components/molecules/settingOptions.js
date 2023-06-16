@@ -14,7 +14,7 @@ export const SettingOptions = () => {
         borderRadius={'15px'}
         marginTop={'16px'}
       >
-        Alterar Foto
+        Mudar Foto de Perfil
       </Button>
       <Button
         onClick={() => navigate('/editAccount')}
@@ -24,7 +24,12 @@ export const SettingOptions = () => {
       >
         Editar Conta
       </Button>
-      <Button width={'100%'} borderRadius={'15px'} marginTop={'8px'}>
+      <Button
+        onClick={() => navigate('/reset-password')}
+        width={'100%'}
+        borderRadius={'15px'}
+        marginTop={'8px'}
+      >
         Alterar Senha
       </Button>
       <Button

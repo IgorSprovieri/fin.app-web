@@ -1,44 +1,53 @@
-import { Button, IconButton, Image } from '@chakra-ui/react'
+import { Button, IconButton, Image, Spinner } from '@chakra-ui/react'
 import { colors, scaleAnimation } from 'styles'
 
-export const SubmitButton = ({
-  children,
-  onClick,
-  marginTop,
-  disabled,
-  w,
-  invertColor
-}) => {
+export const SubmitButton = ({ loading, children, ...props }) => {
   return (
     <Button
-      onClick={onClick}
-      bgColor={invertColor ? colors.background : colors.orange}
-      color={invertColor ? colors.white : colors.background}
-      border={'1px solid'}
-      borderColor={invertColor ? colors.white : colors.orange}
+      bgColor={colors.orange}
+      color={colors.background}
+      border={`1px solid ${colors.orange}`}
+      borderColor={colors.orange}
       borderRadius={'17px'}
-      w={w || '260px'}
       h={'48px'}
-      type="submit"
-      disabled={disabled}
-      marginTop={marginTop || '64px'}
-      fontFamily={'Inter'}
+      marginTop={props.marginTop || '64px'}
       fontWeight={'regular'}
       fontSize={'18px'}
       animation={scaleAnimation}
       _hover={{
-        background: invertColor ? colors.white : colors.background,
-        border: '1px solid',
-        borderColor: invertColor ? colors.white : colors.orange,
-        color: invertColor ? colors.background : colors.white
+        background: colors.background,
+        color: colors.white
       }}
+      {...props}
+    >
+      {loading ? <Spinner></Spinner> : children}
+    </Button>
+  )
+}
+
+export const CancelButton = ({ children, ...props }) => {
+  return (
+    <Button
+      bgColor={colors.background}
+      color={colors.white}
+      border={`1px solid ${colors.white}`}
+      borderRadius={'17px'}
+      h={'48px'}
+      fontWeight={'regular'}
+      fontSize={'18px'}
+      animation={scaleAnimation}
+      _hover={{
+        background: colors.white,
+        color: colors.background
+      }}
+      {...props}
     >
       {children}
     </Button>
   )
 }
 
-export const SubmitModalButton = ({ children, onClick, marginTop, blue }) => {
+export const SubmitModalButton = ({ children, onClick, marginTop }) => {
   return (
     <Button
       onClick={onClick}
@@ -117,7 +126,8 @@ export const AvatarButton = ({
   onClick,
   marginTop,
   size,
-  borderRadius
+  borderRadius,
+  loading
 }) => {
   return (
     <Button

@@ -19,6 +19,9 @@ export const slice = createSlice({
     setAvatarUrl: (state, action) => {
       state.user.avatar_url = action.payload
     },
+    setEmail: (state, action) => {
+      state.user.email = action.payload
+    },
     deleteUser: (state, action) => {
       state.user = initialState
     }
@@ -26,7 +29,7 @@ export const slice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setUser, setAvatarUrl, deleteUser } = slice.actions
+export const { setUser, setAvatarUrl, deleteUser, setEmail } = slice.actions
 
 export const selectUser = (state) => state.counter.user
 

@@ -18,7 +18,8 @@ export const MainInput = ({
   type,
   whiteBg,
   name,
-  error
+  error,
+  w
 }) => {
   return (
     <Input
@@ -35,6 +36,7 @@ export const MainInput = ({
       value={value}
       onChange={onChange}
       borderColor={error ? colors.red : colors.gray}
+      w={w || '100%'}
     ></Input>
   )
 }

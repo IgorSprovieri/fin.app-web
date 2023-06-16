@@ -55,7 +55,7 @@ export const RegisterForm = ({ mutation }) => {
         value={values.password}
         error={errors.password}
       ></MainInput>
-      <SubmitButton marginTop={'48px'} onClick={handleSubmit}>
+      <SubmitButton marginTop={'48px'} w={'260px'} onClick={handleSubmit}>
         Criar Conta
       </SubmitButton>
       <LinkButton onClick={() => navigate('/login')}>

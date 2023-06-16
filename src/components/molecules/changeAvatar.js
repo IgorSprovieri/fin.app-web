@@ -5,12 +5,13 @@ import { selectUser } from 'storage'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const ChangeAvatar = ({ mutation }) => {
+export const ChangeAvatar = ({ mutation, loading, setLoading }) => {
   const navigate = useNavigate()
   const user = useSelector(selectUser)
   const inputFileRef = useRef()
 
   const onChangeImage = (event) => {
+    setLoading(true)
     const file = event?.target?.files[0]
     const type = file?.type
 
@@ -42,7 +43,12 @@ export const ChangeAvatar = ({ mutation }) => {
         type="file"
         accept="image/*"
       ></input>
-      <SubmitButton onClick={() => navigate('/home')} marginTop={'62px'}>
+      <SubmitButton
+        w={'260px'}
+        loading={loading}
+        onClick={() => navigate('/home')}
+        marginTop={'62px'}
+      >
         Avançar
       </SubmitButton>
     </Flex>

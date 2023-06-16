@@ -62,7 +62,7 @@ export const putUserAvatar = async (data, token) => {
 
     return result.data
   } catch (error) {
-    throw new Error('Usuário já existe')
+    throw new Error('Não foi possível subir esse arquivo')
   }
 }
 
@@ -72,5 +72,14 @@ export const login = async (data) => {
     return result.data
   } catch (error) {
     throw new Error('Usuário ou Senha Inválidos')
+  }
+}
+
+export const forgotPassword = async (data) => {
+  try {
+    const result = await instance.post('/forgot-password', { ...data })
+    return result.data
+  } catch (error) {
+    throw new Error('Não foi possível enviar o email')
   }
 }
