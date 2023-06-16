@@ -83,3 +83,16 @@ export const forgotPassword = async (data) => {
     throw new Error('Não foi possível enviar o email')
   }
 }
+
+export const getCategories = async (token) => {
+  try {
+    const result = await instance.get('/categories', {
+      headers: {
+        Authorization: `bearer ${token}`
+      }
+    })
+    return result.data
+  } catch (error) {
+    throw new Error(error?.message || 'Erro Inesperado')
+  }
+}

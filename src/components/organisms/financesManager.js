@@ -1,5 +1,11 @@
 import { Flex } from '@chakra-ui/react'
-import { Main, Menu, Modal, FinanceCard } from 'components/molecules'
+import {
+  Main,
+  Menu,
+  Modal,
+  FinanceCard,
+  ListCategories
+} from 'components/molecules'
 import { useState } from 'react'
 
 export const FinancesManager = ({ finances, categories }) => {
@@ -51,11 +57,7 @@ export const FinancesManager = ({ finances, categories }) => {
       ></Menu>
       <Main title={mainTitle}>
         <Flex w={'100%'} h={'100%'} flexDir={'column'} justify={'flex-start'}>
-          {menuSelector === 0 ? (
-            <ListFinances finances={finances}></ListFinances>
-          ) : (
-            <></>
-          )}
+          {menuSelector === 0 ? <ListCategories></ListCategories> : <></>}
           {menuSelector === 1 ? (
             <ListFinances finances={finances}></ListFinances>
           ) : (
