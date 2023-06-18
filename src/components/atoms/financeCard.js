@@ -2,7 +2,7 @@ import { DeleteIcon } from '@chakra-ui/icons'
 import { Button, Flex, Heading, IconButton, Image } from '@chakra-ui/react'
 import { colors } from 'styles'
 
-export const FinanceCard = ({ name, value, date, category }) => {
+export const FinanceCard = ({ name, value, date, category, iconUrl }) => {
   const moneyFormat = (value) => {
     const options = {
       style: 'currency',
@@ -55,6 +55,7 @@ export const FinanceCard = ({ name, value, date, category }) => {
             h={'40px'}
             borderRadius={'100px'}
             border={'0.5px solid gray'}
+            src={iconUrl || 'default.svg'}
           ></Image>
           <Flex
             flexDir={'column'}

@@ -96,3 +96,38 @@ export const getCategories = async (token) => {
     throw new Error(error?.message || 'Erro Inesperado')
   }
 }
+
+export const getColors = async () => {
+  try {
+    const result = await instance.get('/colors')
+    return result.data
+  } catch (error) {
+    throw new Error('Erro Inesperado')
+  }
+}
+
+export const getIcons = async () => {
+  try {
+    const result = await instance.get('/icons')
+    return result.data
+  } catch (error) {
+    throw new Error('Erro Inesperado')
+  }
+}
+
+export const postCategory = async (data) => {
+  try {
+    const result = await instance.post(
+      '/category',
+      { ...data },
+      {
+        headers: {
+          Authorization: `bearer ${data?.token}`
+        }
+      }
+    )
+    return result.data
+  } catch (error) {
+    throw new Error(error?.message || 'Erro Inesperado')
+  }
+}

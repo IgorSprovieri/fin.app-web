@@ -14,13 +14,20 @@ import {
   SubmitModalButton,
   SwitchInput
 } from 'components/atoms'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { colors } from 'styles'
 
-export const Modal = ({ header, isOpen, onClose, categories }) => {
+export const Modal = ({ title, setOpen, categories, onSubmit }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    if (setOpen === true) {
+      setIsOpen(true)
+    }
+  }, [setOpen])
   return (
-    <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-      <DrawerOverlay />
+    <Drawer isOpen={isOpen} placement="right" onClose={() => setIsOpen(false)}>
+      <DrawerOverlay></DrawerOverlay>
       <DrawerContent borderRadius={'17px'} margin={'16px'}>
         <DrawerCloseButton margin={'8px'}></DrawerCloseButton>
         <DrawerHeader
@@ -28,7 +35,7 @@ export const Modal = ({ header, isOpen, onClose, categories }) => {
           fontFamily={'Inter'}
           fontSize={'24px'}
         >
-          {header}
+          {title}
         </DrawerHeader>
 
         <DrawerBody>
@@ -59,7 +66,7 @@ export const Modal = ({ header, isOpen, onClose, categories }) => {
         </DrawerBody>
 
         <DrawerFooter>
-          <SubmitModalButton>Adicionar</SubmitModalButton>
+          <SubmitModalButton onClick={onSubmit}>{title}</SubmitModalButton>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

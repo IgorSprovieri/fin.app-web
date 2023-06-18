@@ -1,48 +1,50 @@
-import { Flex } from '@chakra-ui/react'
-import { WaveImage, FinancesManager, FinancesHeader } from 'components'
+import { Button, Flex } from '@chakra-ui/react'
+import { useMutation } from '@tanstack/react-query'
+import { getCategories } from 'api'
+import {
+  WaveImage,
+  FinancesHeader,
+  Menu,
+  MainContainer,
+  CategoryCard,
+  Window,
+  AddCategories
+} from 'components'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { selectUser } from 'storage'
 
 export const HomeScreen = () => {
-  const fakeFinances = [
-    {
-      id: 0,
-      name: 'Salário',
-      value: 2000.0,
-      date: '06-05-2023'
-    },
-    {
-      id: 1,
-      name: 'Hamburguer',
-      value: -22.9,
-      date: '06-06-2023',
-      category: 'Comida'
-    },
-    {
-      id: 2,
-      name: 'Aluguel',
-      value: -300,
-      date: '06-07-2023',
-      category: 'Casa'
-    }
-  ]
+  const user = useSelector(selectUser)
+  const [categories, setCategories] = useState([])
+  const [windowIsOpen, setWindowIsOpen] = useState(false)
+  const [windowChildren, setWindowChildren] = useState(<></>)
+  const [windowTitle, setWindowTitle] = useState('')
 
-  const fakeCategories = [
-    {
-      id: 0,
-      category: 'Alimentação'
+  useEffect(() => {
+    mutation.mutate()
+  }, [])
+
+  const mutation = useMutation({
+    mutationFn: () => getCategories(user?.token),
+    onSuccess: (data) => {
+      setCategories(data)
     },
-    {
-      id: 1,
-      category: 'Lazer'
-    },
-    {
-      id: 2,
-      category: 'Casa'
+    onError: (error) => {
+      setWindowChildren(<>{error.message}</>)
     }
-  ]
+  })
 
   return (
     <Flex w={'100dvw'} h={'100dvh'}>
       <WaveImage></WaveImage>
+      <Window
+        title={windowTitle}
+        isOpen={windowIsOpen}
+        setIsOpen={setWindowIsOpen}
+      >
+        {windowChildren}
+      </Window>
       <Flex
         zIndex={1}
         w={'100dvw'}
@@ -51,10 +53,31 @@ export const HomeScreen = () => {
         align={'center'}
       >
         <FinancesHeader></FinancesHeader>
-        <FinancesManager
-          finances={fakeFinances}
-          categories={fakeCategories}
-        ></FinancesManager>
+        <Menu></Menu>
+        <MainContainer title={'Categorias'}>
+          <Flex
+            w={'100%'}
+            h={'max-content'}
+            flexDir={'column'}
+            justify={'flex-start'}
+          >
+            {categories.map((element) => (
+              <CategoryCard
+                key={element.id}
+                category={element.category}
+                iconUrl={element.icon.icon_url}
+                hexColor={element.color.hexColor}
+              ></CategoryCard>
+            ))}
+            <Button
+              onClick={() => {
+                setWindowChildren(<AddCategories></AddCategories>)
+                setWindowTitle('Adicionar Categoria')
+                setWindowIsOpen(true)
+              }}
+            ></Button>
+          </Flex>
+        </MainContainer>
       </Flex>
     </Flex>
   )

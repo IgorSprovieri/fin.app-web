@@ -2,11 +2,11 @@ import { Flex } from '@chakra-ui/react'
 import { DateInput, H1 } from 'components/atoms'
 import { colors, slideUpAnimation } from 'styles'
 
-export const Main = ({ title, children }) => {
+export const MainContainer = ({ title, children }) => {
   return (
     <Flex
       w={'570px'}
-      h={'100%'}
+      h={'calc(100vh - 326px)'}
       bgColor={colors.white}
       marginTop={'32px'}
       marginBottom={'16px'}
@@ -26,7 +26,7 @@ export const Main = ({ title, children }) => {
         <H1>{title}</H1>
         <DateInput></DateInput>
       </Flex>
-      <Flex w={'100%'} h={'100%'} marginTop={'32px'}>
+      <Flex w={'100%'} h={'100%'} marginTop={'32px'} overflow={'scroll'}>
         {children}
       </Flex>
     </Flex>

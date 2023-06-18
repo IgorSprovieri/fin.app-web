@@ -2,7 +2,7 @@ import { DeleteIcon } from '@chakra-ui/icons'
 import { Flex, Heading, IconButton, Image } from '@chakra-ui/react'
 import { colors } from 'styles'
 
-export const CategoryCard = ({ hexColor, iconUrl, category }) => {
+export const CategoryCard = ({ hexColor, iconUrl, category, hideTrash }) => {
   return (
     <Flex
       w={'100%'}
@@ -35,14 +35,18 @@ export const CategoryCard = ({ hexColor, iconUrl, category }) => {
           {category}
         </Heading>
       </Flex>
-      <IconButton
-        variant="outline"
-        border={'0px'}
-        h={'34px'}
-        w={'44px'}
-        borderRadius={'50px'}
-        icon={<DeleteIcon></DeleteIcon>}
-      ></IconButton>
+      {!hideTrash ? (
+        <IconButton
+          variant="outline"
+          border={'0px'}
+          h={'34px'}
+          w={'44px'}
+          borderRadius={'50px'}
+          icon={<DeleteIcon></DeleteIcon>}
+        ></IconButton>
+      ) : (
+        <></>
+      )}
     </Flex>
   )
 }

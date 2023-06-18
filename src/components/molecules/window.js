@@ -7,23 +7,14 @@ import {
   ModalHeader,
   ModalOverlay
 } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
 
-export const Window = ({ setOpen, children }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-    if (setOpen === true) {
-      setIsOpen(true)
-    }
-  }, [setOpen])
-
+export const Window = ({ isOpen, setIsOpen, title, children }) => {
   return (
     <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <ModalOverlay></ModalOverlay>
       <ModalContent borderRadius={'17px'}>
         <ModalCloseButton></ModalCloseButton>
-        <ModalHeader>Configuração</ModalHeader>
+        <ModalHeader>{title}</ModalHeader>
         <ModalBody>{children}</ModalBody>
         <ModalFooter></ModalFooter>
       </ModalContent>

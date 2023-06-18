@@ -126,8 +126,7 @@ export const AvatarButton = ({
   onClick,
   marginTop,
   size,
-  borderRadius,
-  loading
+  borderRadius
 }) => {
   return (
     <Button
