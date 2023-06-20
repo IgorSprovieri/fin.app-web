@@ -1,6 +1,8 @@
 import {
+  Button,
   Flex,
   Heading,
+  Image,
   Input,
   NumberInput,
   NumberInputField,
@@ -139,5 +141,89 @@ export const MoneyInput = ({ onChange, value }) => {
         ></NumberInputField>
       </NumberInput>
     </>
+  )
+}
+
+export const ColorPicker = ({ list, selectedColor, setSelectedColor }) => {
+  const ColorsButton = ({ element }) => {
+    return (
+      <Button
+        w={'50px'}
+        h={'50px'}
+        marginRight={'4px'}
+        bgColor={element?.hexColor}
+        borderRadius={'50px'}
+        border={selectedColor === element?.id ? '3px solid black' : ''}
+        onClick={() => {
+          setSelectedColor(element?.id)
+        }}
+      ></Button>
+    )
+  }
+
+  return (
+    <Flex overflowX={'scroll'} marginTop={'16px'} paddingBottom={'8px'}>
+      <Flex flexDir={'row'} w={'max-content'}>
+        {list.map((element) => (
+          <ColorsButton
+            key={element.id}
+            id={element.id}
+            element={element}
+          ></ColorsButton>
+        ))}
+      </Flex>
+    </Flex>
+  )
+}
+
+export const IconPicker = ({ list, selectedIcon, setSelectedIcon }) => {
+  const rowLength = Math.abs(list?.length / 3)
+
+  const IconsButton = ({ id, element }) => {
+    return (
+      <Button
+        w={'50px'}
+        h={'50px'}
+        padding={'0px'}
+        marginRight={'4px'}
+        borderRadius={'50px'}
+        border={selectedIcon === element?.id ? '3px solid black' : ''}
+        onClick={() => {
+          setSelectedIcon(element?.id)
+        }}
+      >
+        <Image w={'22px'} h={'22px'} src={element?.icon_url}></Image>
+      </Button>
+    )
+  }
+
+  const Row = ({ min, max }) => {
+    return (
+      <Flex flexDir={'row'} marginTop={'4px'} w={'max-content'}>
+        {list.slice(min, max).map((element) => (
+          <IconsButton
+            key={element.id}
+            id={element.id}
+            element={element}
+          ></IconsButton>
+        ))}
+      </Flex>
+    )
+  }
+  return (
+    <Flex
+      overflowX={'scroll'}
+      marginTop={'16px'}
+      paddingBottom={'8px'}
+      flexDir={'column'}
+    >
+      {[...Array(3)].map((e, i) => (
+        <Row
+          key={i}
+          min={rowLength * i}
+          max={i - 1 === list.length ? i : rowLength * (i + 1)}
+        ></Row>
+      ))}
+    </Flex>
   )
 }

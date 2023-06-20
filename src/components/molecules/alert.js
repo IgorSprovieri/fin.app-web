@@ -7,17 +7,8 @@ import {
   ModalOverlay
 } from '@chakra-ui/react'
 import { SubmitModalButton } from 'components/atoms'
-import { useEffect, useState } from 'react'
 
-export const Alert = ({ message, title, setOpen }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-    if (setOpen === true) {
-      setIsOpen(true)
-    }
-  }, [setOpen])
-
+export const Alert = ({ message, title, isOpen, setIsOpen }) => {
   return (
     <Modal isOpen={isOpen}>
       <ModalOverlay></ModalOverlay>

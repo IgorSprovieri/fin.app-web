@@ -2,14 +2,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { putUserAvatar } from 'api'
 import { selectUser, setAvatarUrl } from 'storage'
 import { useMutation } from '@tanstack/react-query'
-import { ChangeAvatar, Alert } from 'components/molecules'
+import { ChangeAvatar } from 'components/molecules'
 import { useState } from 'react'
 
-export const ChangeAvatarQuery = () => {
+export const ChangeAvatarQuery = ({ alertError }) => {
   const user = useSelector(selectUser)
   const dispatch = useDispatch()
-  const [openAlert, setOpenAlert] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
   const [loading, setLoading] = useState(false)
 
   const mutation = useMutation({
@@ -20,22 +18,15 @@ export const ChangeAvatarQuery = () => {
     },
     onError: (error) => {
       setLoading(false)
-      setOpenAlert(true)
-      setErrorMessage(error.message)
-      setTimeout(() => {
-        setOpenAlert(false)
-      }, 500)
+      alertError(error?.message)
     }
   })
 
   return (
-    <>
-      <Alert message={errorMessage} title={'Erro'} setOpen={openAlert}></Alert>
-      <ChangeAvatar
-        mutation={mutation}
-        loading={loading}
-        setLoading={setLoading}
-      ></ChangeAvatar>
-    </>
+    <ChangeAvatar
+      mutation={mutation}
+      loading={loading}
+      setLoading={setLoading}
+    ></ChangeAvatar>
   )
 }

@@ -1,8 +1,16 @@
 import { Flex } from '@chakra-ui/react'
-import { WaveImage } from 'components'
-import { RegisterQuery } from 'components/organisms/registerQuery'
+import { WaveImage, Alert, RegisterQuery } from 'components'
+import { useState } from 'react'
 
 export const RegisterScreen = () => {
+  const [openAlert, setOpenAlert] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const alertError = (message) => {
+    setOpenAlert(true)
+    setErrorMessage(message || 'Erro Inesperado')
+  }
+
   return (
     <Flex
       flexDir={'column'}
@@ -12,7 +20,13 @@ export const RegisterScreen = () => {
       h={'100vh'}
     >
       <WaveImage></WaveImage>
-      <RegisterQuery></RegisterQuery>
+      <Alert
+        isOpen={openAlert}
+        setIsOpen={setOpenAlert}
+        message={errorMessage}
+        title={'Erro'}
+      ></Alert>
+      <RegisterQuery alertError={alertError}></RegisterQuery>
     </Flex>
   )
 }

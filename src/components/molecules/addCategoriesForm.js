@@ -1,41 +1,38 @@
-import { Button, Flex, Image } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { useMutation } from '@tanstack/react-query'
-import { getColors, getIcons, postCategory } from 'api'
-import { CategoryCard, MainInput, SubmitModalButton } from 'components/atoms'
-import { ListItems } from 'components/molecules'
+import { getColors, getIcons } from 'api'
+import {
+  ColorPicker,
+  IconPicker,
+  MainInput,
+  SubmitModalButton
+} from 'components/atoms'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectUser } from 'storage'
+import { CategoryCard } from './categoryCard'
 
-export const AddCategories = ({ onError, onReload }) => {
+export const AddCategoriesForm = ({ initialValue, mutation, alertError }) => {
   const user = useSelector(selectUser)
   const [colors, setColors] = useState([])
   const [icons, setIcons] = useState([])
   const [selectedColor, setSelectedColor] = useState(0)
   const [selectedIcon, setSelectedIcon] = useState(0)
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState(initialValue?.category || '')
 
   useEffect(() => {
     colorsMutation.mutate()
     iconsMutation.mutate()
   }, [])
 
-  const mutation = useMutation({
-    mutationFn: postCategory,
-    onSuccess: () => onReload,
-    onError: (error) => {
-      onError(error)
-    }
-  })
-
   const colorsMutation = useMutation({
     mutationFn: () => getColors(),
     onSuccess: (data) => {
       setColors(data)
-      setSelectedColor(data[0].id)
+      setSelectedColor(initialValue?.color_id || data[0].id)
     },
     onError: (error) => {
-      onError(error)
+      alertError(error?.message)
     }
   })
 
@@ -43,46 +40,12 @@ export const AddCategories = ({ onError, onReload }) => {
     mutationFn: () => getIcons(),
     onSuccess: (data) => {
       setIcons(data)
-      setSelectedIcon(data[0].id)
+      setSelectedIcon(initialValue?.icon_id || data[0].id)
     },
     onError: (error) => {
-      onError(error)
+      alertError(error?.message)
     }
   })
-
-  const ColorsButton = ({ id, element }) => {
-    return (
-      <Button
-        w={'50px'}
-        h={'50px'}
-        marginRight={'4px'}
-        bgColor={element?.hexColor}
-        borderRadius={'50px'}
-        border={selectedColor === id ? '3px solid black' : ''}
-        onClick={() => {
-          setSelectedColor(id)
-        }}
-      ></Button>
-    )
-  }
-
-  const IconsButton = ({ id, element }) => {
-    return (
-      <Button
-        w={'50px'}
-        h={'50px'}
-        padding={'0px'}
-        marginRight={'4px'}
-        borderRadius={'50px'}
-        border={selectedIcon === id ? '3px solid black' : ''}
-        onClick={() => {
-          setSelectedIcon(id)
-        }}
-      >
-        <Image w={'22px'} h={'22px'} src={element?.icon_url}></Image>
-      </Button>
-    )
-  }
 
   return (
     <Flex flexDir={'column'}>
@@ -110,22 +73,21 @@ export const AddCategories = ({ onError, onReload }) => {
         onChange={(e) => setCategory(e.target.value)}
         whiteBg={true}
       ></MainInput>
-      <ListItems
-        flexDir={'row'}
-        marginTop={'16px'}
+      <ColorPicker
         list={colors}
-        Render={ColorsButton}
-        lines={1}
-      ></ListItems>
-      <ListItems
-        flexDir={'row'}
-        marginTop={'16px'}
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
+      ></ColorPicker>
+      <IconPicker
         list={icons}
-        Render={IconsButton}
-        lines={3}
-      ></ListItems>
+        selectedIcon={selectedIcon}
+        setSelectedIcon={setSelectedIcon}
+      ></IconPicker>
       <SubmitModalButton
         onClick={() => {
+          if (category.length < 3) {
+            return alertError('Categoria tem que ter mais que 3 caracteres')
+          }
           mutation.mutate({
             color_id: selectedColor,
             icon_id: selectedIcon,
@@ -134,7 +96,7 @@ export const AddCategories = ({ onError, onReload }) => {
           })
         }}
       >
-        Adicionar
+        {initialValue.category === '' ? 'Adicionar' : 'Editar'}
       </SubmitModalButton>
     </Flex>
   )

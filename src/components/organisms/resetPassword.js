@@ -1,19 +1,13 @@
 import { useMutation } from '@tanstack/react-query'
 import { forgotPassword } from 'api'
 import { CancelButton, WalletTitle } from 'components/atoms'
-import {
-  ResetPasswordToken,
-  SendResetPassword,
-  Alert
-} from 'components/molecules'
+import { ResetPasswordToken, SendResetPassword } from 'components/molecules'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const ResetPassword = () => {
+export const ResetPassword = ({ alertError }) => {
   const navigate = useNavigate()
   const [stage, setStage] = useState(0)
-  const [openAlert, setOpenAlert] = useState(false)
-  const [alertMessage, setAlertMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
 
@@ -26,17 +20,12 @@ export const ResetPassword = () => {
     },
     onError: (error) => {
       setLoading(false)
-      setOpenAlert(true)
-      setAlertMessage(error.message)
-      setTimeout(() => {
-        setOpenAlert(false)
-      }, 500)
+      alertError(error?.message)
     }
   })
 
   return (
     <>
-      <Alert message={alertMessage} title={'Erro'} setOpen={openAlert}></Alert>
       <WalletTitle mL={'32px'} mR={'16px'}>
         Redefinir Senha
       </WalletTitle>

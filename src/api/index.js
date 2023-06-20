@@ -131,3 +131,20 @@ export const postCategory = async (data) => {
     throw new Error(error?.message || 'Erro Inesperado')
   }
 }
+
+export const putCategory = async (data) => {
+  try {
+    const result = await instance.put(
+      `/category/${data?.id}`,
+      { ...data },
+      {
+        headers: {
+          Authorization: `bearer ${data?.token}`
+        }
+      }
+    )
+    return result.data
+  } catch (error) {
+    throw new Error(error?.message || 'Erro Inesperado')
+  }
+}

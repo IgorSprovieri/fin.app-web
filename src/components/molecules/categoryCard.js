@@ -2,7 +2,13 @@ import { DeleteIcon } from '@chakra-ui/icons'
 import { Flex, Heading, IconButton, Image } from '@chakra-ui/react'
 import { colors } from 'styles'
 
-export const CategoryCard = ({ hexColor, iconUrl, category, hideTrash }) => {
+export const CategoryCard = ({
+  hexColor,
+  iconUrl,
+  category,
+  hideTrash,
+  onClick
+}) => {
   return (
     <Flex
       w={'100%'}
@@ -12,7 +18,13 @@ export const CategoryCard = ({ hexColor, iconUrl, category, hideTrash }) => {
       justify={'space-between'}
       marginBottom={'16px'}
     >
-      <Flex flexDir={'row'} align={'center'} justify={'flex-start'}>
+      <Flex
+        flexDir={'row'}
+        align={'center'}
+        justify={'flex-start'}
+        onClick={onClick}
+        cursor={'pointer'}
+      >
         <Flex
           w={'40px'}
           h={'40px'}

@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 
-export const ListItems = ({ list, Render, flexDir, marginTop, lines }) => {
+export const ListRender = ({ list, Render, flexDir, marginTop, lines }) => {
   const rowLength = Math.abs(list?.length / lines)
 
   const Row = ({ min, max }) => {
