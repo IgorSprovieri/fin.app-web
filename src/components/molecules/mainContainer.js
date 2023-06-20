@@ -26,7 +26,7 @@ export const MainContainer = ({ title, children }) => {
         <H1>{title}</H1>
         <DateInput></DateInput>
       </Flex>
-      <Flex w={'100%'} h={'100%'} marginTop={'32px'} overflow={'scroll'}>
+      <Flex w={'100%'} h={'100%'} marginTop={'32px'} overflowY={'scroll'}>
         {children}
       </Flex>
     </Flex>

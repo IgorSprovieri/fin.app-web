@@ -93,7 +93,7 @@ export const getCategories = async (token) => {
     })
     return result.data
   } catch (error) {
-    throw new Error(error?.message || 'Erro Inesperado')
+    throw new Error('Erro Inesperado')
   }
 }
 
@@ -128,7 +128,7 @@ export const postCategory = async (data) => {
     )
     return result.data
   } catch (error) {
-    throw new Error(error?.message || 'Erro Inesperado')
+    throw new Error('Não foi possível criar a categoria')
   }
 }
 
@@ -145,6 +145,19 @@ export const putCategory = async (data) => {
     )
     return result.data
   } catch (error) {
-    throw new Error(error?.message || 'Erro Inesperado')
+    throw new Error('Não foi possível editar a categoria')
+  }
+}
+
+export const deleteCategory = async (data) => {
+  try {
+    const result = await instance.delete(`/category/${data?.id}`, {
+      headers: {
+        Authorization: `bearer ${data?.token}`
+      }
+    })
+    return result.data
+  } catch (error) {
+    throw new Error('Não foi possível deletar a categoria')
   }
 }

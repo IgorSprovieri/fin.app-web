@@ -7,7 +7,8 @@ export const CategoryCard = ({
   iconUrl,
   category,
   hideTrash,
-  onClick
+  onClick,
+  onDelete
 }) => {
   return (
     <Flex
@@ -55,6 +56,7 @@ export const CategoryCard = ({
           w={'44px'}
           borderRadius={'50px'}
           icon={<DeleteIcon></DeleteIcon>}
+          onClick={onDelete}
         ></IconButton>
       ) : (
         <></>

@@ -1,6 +1,6 @@
 import { Button, Flex } from '@chakra-ui/react'
 import { useMutation } from '@tanstack/react-query'
-import { getCategories, postCategory, putCategory } from 'api'
+import { deleteCategory, getCategories, postCategory, putCategory } from 'api'
 import {
   AddCategoriesForm,
   MainContainer,
@@ -19,6 +19,7 @@ export const ListCategories = ({ user, alertError }) => {
   const [windowIsOpen, setWindowIsOpen] = useState(false)
   const [windowTitle, setWindowTitle] = useState('')
   const [initialValue, setInitialValue] = useState(emptyCategory)
+  const [formSubmit, setFormSubmit] = useState(() => {})
 
   useEffect(() => {
     getCategoriesMutation.mutate()
@@ -56,6 +57,17 @@ export const ListCategories = ({ user, alertError }) => {
     }
   })
 
+  const deleteCategoryMutation = useMutation({
+    mutationFn: (data) => deleteCategory({ ...data, token: user?.token }),
+    onSuccess: () => {
+      setWindowIsOpen(false)
+      getCategoriesMutation.mutate()
+    },
+    onError: (error) => {
+      alertError(error?.message)
+    }
+  })
+
   return (
     <>
       <Window
@@ -64,11 +76,7 @@ export const ListCategories = ({ user, alertError }) => {
         setIsOpen={setWindowIsOpen}
       >
         <AddCategoriesForm
-          mutation={
-            initialValue?.category === ''
-              ? putCategoryMutation
-              : postCategoryMutation
-          }
+          mutation={formSubmit}
           initialValue={initialValue}
           alertError={alertError}
         ></AddCategoriesForm>
@@ -90,7 +98,9 @@ export const ListCategories = ({ user, alertError }) => {
                 setWindowTitle('Editar Categoria')
                 setWindowIsOpen(true)
                 setInitialValue(element)
+                setFormSubmit(putCategoryMutation)
               }}
+              onDelete={() => deleteCategoryMutation.mutate(element)}
             ></CategoryCard>
           ))}
           <Button
@@ -102,6 +112,7 @@ export const ListCategories = ({ user, alertError }) => {
               setWindowTitle('Adicionar Categoria')
               setWindowIsOpen(true)
               setInitialValue(emptyCategory)
+              setFormSubmit(postCategoryMutation)
             }}
           >
             +
