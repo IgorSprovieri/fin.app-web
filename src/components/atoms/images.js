@@ -1,4 +1,4 @@
-import { Image } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { fadeAnimation, transparentAnimation } from 'styles'
 
@@ -13,12 +13,15 @@ export const WaveImage = () => {
   }, [])
 
   return (
-    <Image
-      position={'absolute'}
+    <Flex
+      position={['fixed', 'absolute']}
       top={'46.53px'}
-      width={'100vw'}
-      src="wave.svg"
+      w={['100vw', '100vw']}
+      h={['25vw', '12.5vw']}
+      backgroundImage={'url(wave.svg)'}
+      backgroundSize={['200vw', '100vw']}
+      backgroundPosition={['-180px 0px', 'center']}
       animation={animation}
-    ></Image>
+    ></Flex>
   )
 }

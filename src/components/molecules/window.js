@@ -14,7 +14,9 @@ export const Window = ({ isOpen, setIsOpen, title, children }) => {
       <ModalOverlay></ModalOverlay>
       <ModalContent borderRadius={'17px'}>
         <ModalCloseButton></ModalCloseButton>
-        <ModalHeader>{title}</ModalHeader>
+        <ModalHeader fontSize={['24px', null]} fontFamily={'Inter'}>
+          {title}
+        </ModalHeader>
         <ModalBody>{children}</ModalBody>
         <ModalFooter></ModalFooter>
       </ModalContent>

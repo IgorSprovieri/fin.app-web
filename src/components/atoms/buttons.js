@@ -97,8 +97,8 @@ export const MenuButton = ({ icon, onClick }) => {
     <IconButton
       variant="outline"
       border={'0px'}
-      h={'34px'}
-      w={'44px'}
+      h={['28px', '34px']}
+      w={['36px', '44px']}
       borderRadius={'50px'}
       icon={icon}
       animation={scaleAnimation}
@@ -110,8 +110,8 @@ export const MenuButton = ({ icon, onClick }) => {
 export const AddButton = ({ icon, onClick }) => {
   return (
     <IconButton
-      h={'34px'}
-      w={'44px'}
+      h={['28px', '34px']}
+      w={['36px', '44px']}
       borderRadius={'50px'}
       bgColor={colors.blue}
       icon={icon}

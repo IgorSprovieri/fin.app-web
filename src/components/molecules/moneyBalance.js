@@ -14,16 +14,16 @@ export const MoneyBalance = ({ value }) => {
 
   return (
     <Flex
-      marginTop={'32px'}
-      h={'80px'}
+      marginTop={['48px', '32px']}
+      h={['66px', '80px']}
       flexDir={'column'}
       align={'left'}
-      justifyContent={'left'}
+      justifyContent={'space-between'}
       w={'100%'}
     >
       <Heading
         color={colors.gray}
-        fontSize={'22px'}
+        fontSize={['18px', '22px']}
         fontWeight={'medium'}
         fontFamily={'Inter'}
         animation={animation}
@@ -32,7 +32,7 @@ export const MoneyBalance = ({ value }) => {
       </Heading>
       <Heading
         color={colors.white}
-        fontSize={'44px'}
+        fontSize={['36px', '44px']}
         fontWeight={'medium'}
         fontFamily={'Inter'}
         animation={animation}

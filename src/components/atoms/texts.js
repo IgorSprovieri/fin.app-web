@@ -5,7 +5,7 @@ export const H1 = ({ children }) => {
   return (
     <Heading
       color={colors.background}
-      fontSize={'32px'}
+      fontSize={['26px', '32px']}
       fontWeight={'bold'}
       fontFamily={'Inter'}
     >
@@ -18,7 +18,7 @@ export const H2 = ({ children, marginTop }) => {
   return (
     <Heading
       color={colors.white}
-      fontSize={'26px'}
+      fontSize={['22px', '26px']}
       fontWeight={'regular'}
       fontFamily={'Inter'}
       animation={scaleAnimation}

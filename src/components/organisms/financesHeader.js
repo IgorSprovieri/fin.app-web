@@ -16,12 +16,14 @@ export const FinancesHeader = () => {
   return (
     <>
       <Flex
-        w={'570px'}
+        w={['100%', '570px']}
+        marginTop={['48px', '32px']}
+        paddingLeft={['32px', '0px']}
         flexDir={'column'}
         align={'center'}
         justify={'space-between'}
       >
-        <Window setOpen={openWindow}>
+        <Window isOpen={openWindow} setIsOpen={setOpenWindow}>
           <SettingOptions></SettingOptions>
         </Window>
         <HeaderAvatar
@@ -29,9 +31,6 @@ export const FinancesHeader = () => {
           avatarUrl={user?.avatar_url}
           onAvatar={() => {
             setOpenWindow(true)
-            setTimeout(() => {
-              setOpenWindow(false)
-            }, 500)
           }}
         ></HeaderAvatar>
         <MoneyBalance value={'1 000,00'}></MoneyBalance>

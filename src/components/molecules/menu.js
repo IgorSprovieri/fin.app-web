@@ -11,9 +11,9 @@ import {
 export const Menu = ({ onHome, onTransitions, onBalance, onAdd }) => {
   return (
     <Flex
-      w={'334px'}
+      w={['300px', '334px']}
       h={'32px'}
-      marginTop={'32px'}
+      marginTop={['48px', '32px']}
       flexDir={'row'}
       align={'center'}
       justify={'space-between'}

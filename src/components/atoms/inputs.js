@@ -79,7 +79,7 @@ export const DateInput = () => {
       animation={scaleAnimation}
       fontFamily={'Inter'}
       fontSize={'18px'}
-      w={'128px'}
+      w={['96px', '128px']}
       h={'32px'}
       border={0}
       padding={'8px'}
